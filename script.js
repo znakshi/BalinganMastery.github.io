@@ -1,3 +1,19 @@
+// ===== Dark Mode Toggle =====
+const darkModeToggle = document.getElementById('darkModeToggle');
+const htmlElement = document.documentElement;
+
+// Check for saved dark mode preference or default to false
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+}
+
+darkModeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    const isNowDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isNowDark);
+});
+
 // ===== Smooth Scroll Navigation =====
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -124,6 +140,49 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+
+// ===== Interactive Timeline =====
+document.querySelectorAll('.timeline-item').forEach((item, index) => {
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.02)';
+    });
+
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+
+    // Animate timeline items on scroll
+    const timelineObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeIn 0.6s ease-in-out forwards';
+                timelineObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    timelineObserver.observe(item);
+});
+
+// ===== Dynamic Content Loading for Timeline =====
+function loadTimelineData() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = '0';
+            item.offsetHeight; // Trigger reflow
+            item.style.transition = 'all 0.6s ease-in-out';
+            item.style.opacity = '1';
+        }, index * 200);
+    });
+}
+
+// Load timeline data when page loads
+window.addEventListener('load', function() {
+    loadTimelineData();
+});
+
+// ===== Smooth Scroll Navigation =====
 
 // ===== Scroll Animation for Sections =====
 const observerOptions = {

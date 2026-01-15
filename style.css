@@ -6,13 +6,82 @@
 }
 
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #0056b3;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-    --border-color: #ddd;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --primary-color: #1b5e20;
+    --secondary-color: #0d3817;
+    --accent-color: #2d7a3a;
+    --text-color: #1a1a1a;
+    --light-bg: #f5f5f5;
+    --border-color: #d0d0d0;
+    --shadow: 0 4px 8px rgba(27, 94, 32, 0.15);
     --transition: 0.3s ease-in-out;
+}
+
+body.dark-mode {
+    --text-color: #c8e6c9;
+    --light-bg: #121212;
+    --border-color: #2d5a35;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode {
+    background-color: #0a0a0a;
+    color: #c8e6c9;
+}
+
+body.dark-mode .navbar {
+    background-color: #141414;
+    border-bottom: 1px solid #2d5a35;
+}
+
+body.dark-mode .section {
+    background-color: #141414;
+    color: #c8e6c9;
+}
+
+body.dark-mode .education-item,
+body.dark-mode .experience-item,
+body.dark-mode .project-card,
+body.dark-mode .contact-form {
+    background-color: #1e1e1e;
+    color: #c8e6c9;
+    border-left-color: #2d7a3a;
+}
+
+body.dark-mode .skill-list li {
+    background-color: #1e1e1e;
+    color: #c8e6c9;
+    border-left-color: #2d7a3a;
+}
+
+body.dark-mode .skill-list li:hover {
+    background-color: #1b5e20;
+    color: #c8e6c9;
+}
+
+body.dark-mode .header {
+    background: linear-gradient(135deg, #0d3817, #051d0a);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: #1e1e1e;
+    color: #c8e6c9;
+    border-color: #2d5a35;
+}
+
+body.dark-mode .form-group label {
+    color: #a7d8a7;
+}
+
+body.dark-mode .timeline-content {
+    background-color: #1e1e1e;
+    color: #c8e6c9;
+    border-color: #2d5a35;
+}
+
+body.dark-mode .timeline-company,
+body.dark-mode .timeline-description {
+    color: #a7d8a7;
 }
 
 html {
@@ -33,7 +102,7 @@ a {
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 /* ===== Container ===== */
@@ -54,6 +123,39 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: all var(--transition);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    flex: 1;
+    justify-content: center;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    background-color: rgba(27, 94, 32, 0.1);
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .dark-mode-toggle .toggle-icon {
+    transform: rotate(180deg);
 }
 
 .logo {
@@ -84,12 +186,14 @@ a:hover {
 .header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
+    animation: slideDown 0.8s ease-in-out;
     text-align: center;
     padding: 80px 30px;
     margin-bottom: 50px;
 }
-
+ 
 .title {
+    animation:  fadeInDown 0.8s ease-in-out;
     font-size: 48px;
     margin-bottom: 10px;
     font-weight: bold;
@@ -97,6 +201,7 @@ a:hover {
 
 .subtitle {
     font-size: 24px;
+    animation: fadeInUp 0.8s ease-in-out 0.2s both;
     font-weight: 300;
     opacity: 0.9;
 }
@@ -105,6 +210,8 @@ a:hover {
 .section {
     background-color: white;
     margin: 30px;
+    transition: all var(--transition);
+    animation: scaleIn 0.5s ease-in-out;
     padding: 40px;
     border-radius: 8px;
     box-shadow: var(--shadow);
@@ -112,6 +219,7 @@ a:hover {
 
 .section-title {
     font-size: 36px;
+    animation: slideInLeft 0.6s ease-in-out;
     color: var(--primary-color);
     margin-bottom: 30px;
     border-bottom: 3px solid var(--primary-color);
@@ -125,6 +233,46 @@ a:hover {
     color: #555;
 }
 
+/* ===== About Section Styles ===== */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    animation: slideInLeft 0.6s ease-in-out;
+}
+
+body.dark-mode .about-text {
+    color: #aaa;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInRight 0.6s ease-in-out;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.2);
+    transition: all var(--transition);
+    border: 3px solid var(--primary-color);
+}
+
+.about-image img:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 12px 30px rgba(27, 94, 32, 0.4);
+}
+
 /* ===== Education Section ===== */
 .education-item,
 .experience-item {
@@ -133,13 +281,15 @@ a:hover {
     background-color: var(--light-bg);
     border-left: 4px solid var(--primary-color);
     border-radius: 4px;
-    transition: transform var(--transition), box-shadow var(--transition);
+    transition: all var(--transition);
+    animation: slideInRight 0.6s ease-in-out;
 }
 
 .education-item:hover,
 .experience-item:hover {
     transform: translateX(10px);
     box-shadow: var(--shadow);
+    background-color: rgba(27, 94, 32, 0.05);
 }
 
 .education-item h3,
@@ -181,12 +331,14 @@ a:hover {
 }
 
 .skill-list li {
-    padding: 12px;
-    margin-bottom: 10px;
-    background-color: var(--light-bg);
-    border-radius: 4px;
-    border-left: 4px solid var(--primary-color);
-    transition: all var(--transition);
+    animation: slideInRight 0.6s ease-in-out;
+}
+
+.skill-list li:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(5px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3nsition);
     cursor: pointer;
 }
 
@@ -204,12 +356,13 @@ a:hover {
 }
 
 .project-card {
-    background-color: var(--light-bg);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    animation: bounceIn 0.6s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     transition: all var(--transition);
-    border-top: 4px solid var(--primary-color);
 }
 
 .project-card:hover {
@@ -291,7 +444,7 @@ a:hover {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 5px rgba(1, 46, 7, 0.25);
 }
 
 .submit-btn {
@@ -352,6 +505,111 @@ a:hover {
     font-size: 14px;
 }
 
+/* ===== Timeline Styles ===== */
+.timeline-container {
+    position: relative;
+    padding: 20px 0;
+}
+
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    animation: growDown 0.8s ease-in-out;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: 50%;
+    padding-right: 30px;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 50%;
+    margin-right: 0;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border: 4px solid white;
+    border-radius: 50%;
+    top: 0;
+    transition: all var(--transition);
+    box-shadow: 0 0 0 4px var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+.timeline-item:hover .timeline-marker {
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 0 8px var(--primary-color);
+}
+
+.timeline-content {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: all var(--transition);
+    border: 2px solid transparent;
+}
+
+.timeline-item:hover .timeline-content {
+    border-color: var(--primary-color);
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-company {
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.timeline-description {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+body.dark-mode .timeline-content {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .timeline-company,
+body.dark-mode .timeline-description {
+    color: #aaa;
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
     .navbar {
@@ -363,6 +621,8 @@ a:hover {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
+        flex: none;
+        width: 100%;
     }
 
     .title {
@@ -392,6 +652,28 @@ a:hover {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .timeline-container::before {
+        left: 30px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 80px;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-marker {
+        left: 30px;
     }
 }
 
@@ -431,5 +713,153 @@ a:hover {
 
     .section-title {
         font-size: 22px;
+    }
+
+    .dark-mode-toggle {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* ===== Global Animations ===== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes growDown {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px var(--primary-color);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(27, 94, 32, 0.3);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

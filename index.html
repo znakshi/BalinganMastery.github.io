@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,24 +14,32 @@
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                <span class="toggle-icon">🌙</span>
+            </button>
         </nav>
 
         <!-- Header -->
         <header class="header">
-            <h1 class="title">Your Name</h1>
-            <p class="subtitle">Your Professional Title / Profession</p>
+            <h1 class="title">Zina Kishi M. Balingan</h1>
+            <p class="subtitle">College IT Student</p>
         </header>
 
         <!-- About Me Section -->
         <section id="about" class="section">
             <h2 class="section-title">About Me</h2>
-            <div class="section-content">
-                <p>This is your About Me section. Share a brief introduction about yourself, your background, and what makes you unique. Include your passions, career goals, and any notable achievements. Tell potential employers or clients why you're the right person for the job.</p>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Hello! You can call me Zina! I'm a passionate college IT student with a strong interest in web development and software engineering. I enjoy solving problems and creating innovative solutions through code.</p>
+                </div>
+                <div class="about-image">
+                    <img src="image.png" alt="Profile Picture">
+                </div>
             </div>
         </section>
 
@@ -39,29 +47,44 @@
         <section id="education" class="section">
             <h2 class="section-title">Education</h2>
             <div class="education-item">
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p class="institution">University Name | Graduation: 2024</p>
-                <p class="details">Relevant coursework: Data Structures, Web Development, Database Management, Algorithms</p>
+                <h3>Bachelor of Science in Information Technology</h3>
+                <p class="institution">University of the Cordilleras | Present</p>
+                <p class="address">Gov. Pack Rd, Baguio City, Benguet</p>
             </div>
             <div class="education-item">
-                <h3>High School Diploma</h3>
-                <p class="institution">High School Name | Graduation: 2020</p>
-                <p class="details">Academic achievements and notable courses.</p>
+                <h3>Junior and Senior High School</h3>
+                <p class="institution">King's College of the Philippines | Graduation: 2023</p>
+                <p class="address">Km5 Pico Rd, La Trinidad, Benguet</p>
+            </div>
+            <div class="education-item">
+                <h3>Elementary</h3>
+                <p class="institution">Benguet Special Education Center | Graduation: 2017</p>
+                <p class="address">Wangal, La Trinidad, Benguet</p>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-item">
-                <h3>Web Developer</h3>
-                <p class="company">Company Name | 2023 - Present</p>
-                <p class="details">Developed and maintained responsive web applications using HTML, CSS, and JavaScript. Collaborated with design teams to implement user-friendly interfaces.</p>
-            </div>
-            <div class="experience-item">
-                <h3>Junior Developer</h3>
-                <p class="company">Previous Company | 2022 - 2023</p>
-                <p class="details">Assisted in building web pages and fixing bugs. Learned best practices for clean code and version control with Git.</p>
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <h2 class="section-title">Experience Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Web Development Student</h3>
+                        <p class="timeline-date">2023 - Present</p>
+                        <p class="timeline-company">University of the Cordilleras</p>
+                        <p class="timeline-description">Currently pursuing a degree in Information Technology with a focus on web development and software engineering.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2021">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Graduate</h3>
+                        <p class="timeline-date">2021</p>
+                        <p class="timeline-company">King's College of the Philippines</p>
+                        <p class="timeline-description">Completed senior high school education with focus on Information and Communication Technology.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -74,7 +97,7 @@
                     <ul class="skill-list">
                         <li>HTML5 & CSS3</li>
                         <li>JavaScript</li>
-                        <li>React</li>
+                        <li>PHP</li>
                         <li>Git & GitHub</li>
                         <li>Database Management</li>
                     </ul>
@@ -97,22 +120,10 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>E-Commerce Website</h3>
-                    <p class="project-tech">Technologies: HTML, CSS, JavaScript, React</p>
-                    <p class="project-description">Built a fully functional e-commerce website with product listings, shopping cart, and checkout functionality. Implemented responsive design for mobile and desktop.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Task Management App</h3>
-                    <p class="project-tech">Technologies: HTML, CSS, JavaScript</p>
-                    <p class="project-description">Created a web-based task management application that allows users to add, edit, and delete tasks. Features include task categorization and due date tracking.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Weather Application</h3>
-                    <p class="project-tech">Technologies: HTML, CSS, JavaScript, API</p>
-                    <p class="project-description">Developed a weather app that fetches real-time weather data from an API. Displays current weather, forecasts, and location-based information.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <h3>PGSO Reservation Website</h3>
+                    <p class="project-tech">Technologies: HTML, CSS, JavaScript, Firestore</p>
+                    <p class="project-description">Developed a reservation system for the Philippine General Services Office (PGSO) using Firestore for data management.</p>
+                    <a href="https://pgso-res.web.app/" class="project-link">View Project</a>
                 </div>
             </div>
         </section>
@@ -138,18 +149,18 @@
                 </form>
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
-                    <p><strong>Email:</strong> your.email@example.com</p>
-                    <p><strong>Phone:</strong> (123) 456-7890</p>
-                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com/in/yourprofile</a></p>
-                    <p><strong>GitHub:</strong> <a href="https://github.com" target="_blank">github.com/yourprofile</a></p>
-                    <p><strong>Location:</strong> City, State/Country</p>
+                    <p><strong>Email:</strong> zinabalingan@gmail.com</p>
+                    <p><strong>Phone:</strong> 09562540974</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/zina-balingan-939272291/" target="_blank">linkedin.com/in/zina-balingan</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/znakshi" target="_blank">github.com/znakshi</a></p>
+                    <p><strong>Location:</strong> La Trinindad Benguet, Philippines</p>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2026 Your Name. All rights reserved.</p>
+            <p>&copy; 2026 Zina Balingan. All rights reserved.</p>
         </footer>
     </div>
 
