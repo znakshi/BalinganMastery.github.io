@@ -83,7 +83,7 @@ function showAlert(message, type) {
         top: 20px;
         right: 20px;
         padding: 15px 20px;
-        background-color: ${type === 'success' ? '#4CAF50' : '#f44336'};
+        background-color: ${type === 'success' ? '#063108' : '#093b07'};
         color: white;
         border-radius: 4px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -222,7 +222,7 @@ window.addEventListener('scroll', function() {
         link.style.borderBottom = 'none';
         link.style.paddingBottom = '0px';
         if (link.getAttribute('href').substring(1) === current) {
-            link.style.borderBottom = '2px solid #007bff';
+            link.style.borderBottom = '2px solid #07360b';
             link.style.paddingBottom = '3px';
         }
     });
@@ -259,5 +259,5 @@ document.querySelector('.logo').addEventListener('click', function(e) {
 });
 
 // ===== Console Welcome Message =====
-console.log('%cWelcome to My Portfolio!', 'color: #007bff; font-size: 20px; font-weight: bold;');
-console.log('%cThanks for visiting. Feel free to explore!', 'color: #0056b3; font-size: 14px;');
+console.log('%cWelcome to My Portfolio!', 'color: #0c4b19; font-size: 20px; font-weight: bold;');
+console.log('%cThanks for visiting. Feel free to explore!', 'color: #0c4919; font-size: 14px;');
